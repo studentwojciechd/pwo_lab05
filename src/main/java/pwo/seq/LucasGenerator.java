@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class LucasGenerator extends FibonacciGenerator {
 
-    public LucasGenerator() {
+public LucasGenerator() {
         current = new BigDecimal(2);
         f_2 = new BigDecimal(2);
     }
@@ -18,7 +18,7 @@ public class LucasGenerator extends FibonacciGenerator {
 
     @Override
     public BigDecimal nextTerm() {
-        if (lastIndex == 0) {
+        if (lastIndex < 2) {
             lastIndex++;
             return new BigDecimal(2);
         }

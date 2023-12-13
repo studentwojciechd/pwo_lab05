@@ -20,6 +20,7 @@ public class FibonacciGenerator extends Generator {
 
     @Override
     public BigDecimal nextTerm() {
+        BigDecimal previous = current;
         if (lastIndex > 1) {
             current = f_1.add(f_2);
             f_2 = f_1;
@@ -30,6 +31,9 @@ public class FibonacciGenerator extends Generator {
             current = new BigDecimal(0);
         }
         lastIndex++;
-        return current;
+        if (current.compareTo(previous) >= 0)
+            return current;
+        else
+            return previous.subtract(current);
     }
 }
